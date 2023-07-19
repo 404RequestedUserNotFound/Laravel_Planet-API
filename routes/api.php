@@ -22,6 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('planets', [PlanetController::class, 'index']);
 Route::post('planets', [PlanetController::class, 'store']);
-Route::get('planets/{planets}', [PlanetController::class, 'show']);
-Route::post('planets/{planets}', [PlanetController::class, 'update']);
-Route::delete('planets/{planets}', [PlanetController::class, 'destroy']);
+Route::get('planets/{planet}', [PlanetController::class, 'show']);
+Route::post('planets/{planet}', [PlanetController::class, 'update']);
+Route::delete('planets/{planet}', [PlanetController::class, 'destroy']);

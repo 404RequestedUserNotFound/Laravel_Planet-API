@@ -75,6 +75,9 @@ class PlanetController extends Controller
      */
     public function destroy(Planet $planet)
     {
-        //
+        $planet->delete();
+        return response()->json([
+            'message' => 'Planet deleted successfully'
+        ]);
     }
 }

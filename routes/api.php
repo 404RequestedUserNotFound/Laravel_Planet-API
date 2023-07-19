@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get("planets", [PlanetController::class, 'index']);
+Route::post("planets", [PlanetController::class, 'store']);

@@ -22,7 +22,21 @@ class PlanetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $planets = new Planet;
+        $planets->name = $request->name;
+        $planets->diameter = $request->diameter;
+        $planets->rotation_period = $request->rotation_period;
+        $planets->climate = $request->climate;
+        $planets->terrain = $request->terrain;
+        $planets->surface_water = $request->surface_water;
+        $planets->population = $request->population;
+        $planets->image = $request->image;
+        $planets->save();
+
+        return response()->json([
+            'message' => 'Planet created successfully',
+            'planet' => $planets
+        ]);
     }
 
     /**

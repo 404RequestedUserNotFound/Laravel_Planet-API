@@ -44,7 +44,9 @@ class PlanetController extends Controller
      */
     public function show(Planet $planet)
     {
-        //
+        return response()-> json([
+            'planet' => $planet
+        ]);
     }
 
     /**
@@ -52,7 +54,20 @@ class PlanetController extends Controller
      */
     public function update(Request $request, Planet $planet)
     {
-        //
+        $planet->name = $request->name;
+        $planet->diameter = $request->diameter;
+        $planet->rotation_period = $request->rotation_period;
+        $planet->climate= $request->climate;
+        $planet->terrain = $request->terrain;
+        $planet->surface_water = $request->surface_water;
+        $planet->population = $request->population;
+        $planet->image = $request->image;
+        $planet->save();
+
+        return response()->json([
+            'message' => 'Planet information updated successfully',
+            'planet' => $planet
+        ]);
     }
 
     /**
